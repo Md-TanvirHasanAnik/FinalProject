@@ -1075,16 +1075,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  ">
-                        <form>
-
+                        <form action="{{ route('create.counseling') }}" method="post">
+                        @csrf
 
                             <div class='col-md-6'>
 
                                 <div class="form-group">
-                                    <label for="Time Star">Time End</label>
+                                    <label for="Time Star">Start Time</label>
                                     <div class='input-group date' id='datetimepicker6'>
 
-                                        <input type='text' class="form-control" />
+                                        <input type='text' class="form-control" name="startTime" />
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -1099,7 +1099,7 @@
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker7'>
 
-                                        <input type='text' class="form-control" name="timeend" />
+                                        <input type='text' class="form-control" name="endTime" />
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -1111,7 +1111,7 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Day</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="day">
                                         <option value="friday">Friday</option>
                                         <option value="saturday">Saturday</option>
                                         <option value="sunday">Sunday</option>
@@ -1128,9 +1128,10 @@
                             <div class='col-md-6'>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Number of student</label>
-                                    <input type="number" min="0" class="form-control" id="exampleFormControlInput1" placeholder="00">
+                                    <input type="number" min="0" class="form-control" id="exampleFormControlInput1" placeholder="00" name="no_student">
                                 </div>
                             </div>
+                            <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
 
                             <div class="form-group">
                                 <div class="col text-center">

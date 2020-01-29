@@ -12,7 +12,7 @@ class CounselingController extends Controller
     
 
     public function createCounseling(Request $r){
-        
+              
 
 
         Counseling::create([
@@ -24,6 +24,12 @@ class CounselingController extends Controller
         ]);
 
         return "success";
+
+    }
+
+    public function slotting(){
+
+        
 
     }
 
